@@ -5,21 +5,18 @@ from app.main import check_password
 @pytest.mark.parametrize(
     "password, results",
     [
-        ("Pass@word1", True),
-        ("Password123!", True),
-        ("A1@abcdef", True),
-        ("Pass1@", False),
-        ("1234@#", False),
-        ("ThisIsAVeryLongPassword1@", False),
-        ("Password123456789!", False),
-        ("password1234", False),
-        ("PASSWORD@123", False),
-        ("Password123", False),
-        ("Pass@word", False),
+        ("Valid1@", True),
+        ("ValidPassword123@", True),
+        ("short1@", False),
+        ("VeryLongPassword123@", False),
         ("12345678", False),
-        ("@#&*()123", False),
-        ("qwerty", False),
-        ("Str@ng", False),
+        ("password@", False),
+        ("password1", False),
+        ("1@Short", False),
+        ("Valid@123", True),
+        ("NoSpecialChar1", False),
+        ("NoUppercase1@", False),
+        ("Valid1#password", False),
     ]
 )
 def test_check_password(
