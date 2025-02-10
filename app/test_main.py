@@ -21,7 +21,8 @@ from app.main import check_password
         ("uppercase@1", False),
         ("1234@abcD", True),
         ("wamdomawodma", False),
-        (" ", False)
+        (" ", False),
+        ("Wawddawd@", False)
     ]
 )
 def test_check_password(
